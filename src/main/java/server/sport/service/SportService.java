@@ -18,7 +18,7 @@ public class SportService {
 
     public ResponseEntity<Sport> createSport (Sport sport) {
         Optional<Sport> _sport = sportRepository.findBySportName(sport.getSportName());
-        if(_sport.isEmpty()) {
+        if(_sport.isPresent()) {
             Sport newSportEntry = sportRepository.save(sport); //newSportEntry has the new id which was not existing when passing sport
             return new ResponseEntity<>(newSportEntry, HttpStatus.CREATED);
         }else{

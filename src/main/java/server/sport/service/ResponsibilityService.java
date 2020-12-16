@@ -25,7 +25,7 @@ public class ResponsibilityService {
         try {
             Optional<Sport> sport = sportRepository.findById(sport_id);
 
-            if(sport.isEmpty()) {
+            if(sport.isPresent()) {
                 //Customize the message -> Sport not found
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
             }
@@ -59,7 +59,7 @@ public class ResponsibilityService {
             String sport_name = responsibility.getSport().getSportName();
             Optional<Sport> sport = sportRepository.findBySportName(sport_name);
 
-            if(sport.isEmpty()){
+            if(sport.isPresent()){
                 Sport _sport = sportRepository.save(new Sport(responsibility.getSport().getSportName()));
                 responsibility.setSport(_sport);
             }else{
