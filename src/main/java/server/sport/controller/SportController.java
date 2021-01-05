@@ -27,9 +27,5 @@ public class SportController {
         return sportService.updateSport(sportId, sport);
     }
 
-    @GetMapping
-    public ResponseEntity<List<Sport>> getAllSports(){
-        return sportService.getAllSports();
-    }
 
 }
