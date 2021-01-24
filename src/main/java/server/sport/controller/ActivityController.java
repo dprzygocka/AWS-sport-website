@@ -21,7 +21,14 @@ public class ActivityController {
     @Autowired
     ActivityService activityService;
 
-
+    @GetMapping
+    public ResponseEntity<Map<String, Object>> getPageOfActivities(
+            @RequestParam(defaultValue = "0")int page, //activities to be loaded on page 0
+            @RequestParam(defaultValue = "3")int size, //3 activities will be fetched from the database
+            @RequestParam(defaultValue = "activityId,desc")String[] sort //ordered by descending order
+    ){
+        return activityService.getPageOfActivities(page, size, sort);
+    }
 
 
     @GetMapping("/{activity_id}")
