@@ -1,4 +1,4 @@
 # AWS-sport-website
+Java Spring Boot 3rd Semester Project at Copenhagen School of Design and Technology 
 Repository for continous integration.
-Semester 3 programming project.
-Created using: Java Spring Boot, MySQL, React, CSS, HTML
+
